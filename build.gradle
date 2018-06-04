@@ -1,3 +1,8 @@
+repositories {
+  mavenLocal()
+  mavenCentral()
+}
+
 version = '0.0.1'
 
 apply plugin: 'java'
@@ -6,6 +11,10 @@ apply plugin: 'maven'
 
 sourceCompatibility = 1.8
 targetCompatibility = 1.8
+
+dependencies {
+  testCompile group: 'org.testng', name: 'testng', version: '6.14.3'
+}
 
 jar {
   manifest {
@@ -32,10 +41,10 @@ sourceSets.main.resources.srcDirs = ["src_resources"]
 sourceSets.test.resources.srcDirs = ["test_resources"]
 
 sourceSets.main.resources {
-        srcDirs += sourceSets.main.java.srcDirs
-        exclude '**/*.java'
+  srcDirs += sourceSets.main.java.srcDirs
+  exclude '**/*.java'
 }
 sourceSets.test.resources {
-    srcDirs += sourceSets.test.java.srcDirs
-    exclude '**/*.java'
+  srcDirs += sourceSets.test.java.srcDirs
+  exclude '**/*.java'
 }
